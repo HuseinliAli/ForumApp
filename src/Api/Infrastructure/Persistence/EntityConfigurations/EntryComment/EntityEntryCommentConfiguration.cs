@@ -13,10 +13,11 @@ public class EntityEntryCommentConfiguration : BaseEntityConfiguration<Domain.Mo
     public override void Configure(EntityTypeBuilder<Domain.Models.EntryComment> builder)
     {
         base.Configure(builder);
-        builder.ToTable("entry_comments",ForumAppContext.DEFAULT_SHCEMA);
+        builder.ToTable("entry_comments", ForumAppContext.DEFAULT_SHCEMA);
         builder.HasOne(x => x.User)
             .WithMany(x => x.EntryComments)
-            .HasForeignKey(x => x.UserId);
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Restrict); ;
         builder.HasOne(x => x.Entry)
             .WithMany(x => x.EntryComments)
             .HasForeignKey(x => x.EntryId);

@@ -11,7 +11,8 @@ public class EntityEntryCommentFavoriteConfiguration : BaseEntityConfiguration<D
         builder.ToTable("entry_comment_favorites", ForumAppContext.DEFAULT_SHCEMA);
         builder.HasOne(x => x.User)
             .WithMany(x => x.EntryCommentFavorites)
-            .HasForeignKey(x => x.UserId);
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Restrict); ;
         builder.HasOne(x => x.EntryComment)
             .WithMany(x => x.EntryCommentFavorites)
             .HasForeignKey(x => x.EntryCommentId);

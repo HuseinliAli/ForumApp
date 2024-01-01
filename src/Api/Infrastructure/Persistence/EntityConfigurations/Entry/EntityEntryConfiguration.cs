@@ -14,6 +14,6 @@ public class EntityEntryConfiguration : BaseEntityConfiguration<Domain.Models.En
     {
         base.Configure(builder);
         builder.ToTable("entries", ForumAppContext.DEFAULT_SHCEMA);
-        builder.HasOne(x => x.User).WithMany(x => x.Entries).HasForeignKey(x => x.UserId);
+        builder.HasOne(x => x.User).WithMany(x => x.Entries).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Restrict); ;
     }
 }
