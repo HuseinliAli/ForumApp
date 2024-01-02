@@ -23,8 +23,6 @@ public static class Registration
         services.AddScoped<IEntryRepository, EntryRepository>();
         services.AddScoped<IEntryCommentRepository, EntryCommentRepository>();
         services.AddScoped<IEmailConfirmationRepository, EmailConfirmationRepository>();
-        //var seeder = new Seeder();
-        //seeder.SeedAsync(configuration).GetAwaiter().GetResult();
         return services;
     }
 }
