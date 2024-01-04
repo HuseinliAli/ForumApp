@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.Models.Queries;
+using Common.Models.RequestModels;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace Application.Mapping
         public MappingProfile()
         {
             CreateMap<User, LoginUserViewModel>().ReverseMap();
+
+            CreateMap<CreateUserCommand, User>();
+            CreateMap<UpdateUserCommand, User>();
         }
     }
 }

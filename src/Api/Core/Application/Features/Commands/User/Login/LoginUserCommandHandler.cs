@@ -12,7 +12,7 @@ using System.Security.Claims;
 using System.Text;
 
 
-namespace Application.Features.Commands.User
+namespace Application.Features.Commands.User.Login
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUserViewModel>
     {
@@ -22,9 +22,9 @@ namespace Application.Features.Commands.User
 
         public LoginUserCommandHandler(IUserRepository userRepository, IMapper mapper, IConfiguration configuration)
         {
-            _userRepository=userRepository;
-            _mapper=mapper;
-            _configuration=configuration;
+            _userRepository = userRepository;
+            _mapper = mapper;
+            _configuration = configuration;
         }
         public async Task<LoginUserViewModel> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
